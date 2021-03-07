@@ -11,5 +11,6 @@
 		"type": "git",
 		"url": "https://idontknow/todo.git"
 	},
-	"author": "Douglas Hammarstam"
+	"author": "Douglas Hammarstam",
+	"description": "Learning node server via FCC"
 }
