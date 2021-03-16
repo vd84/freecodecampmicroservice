@@ -1,8 +1,7 @@
-import { MESSAGE_STYLE } from './config';
-import express, { static } from 'express';
+var express = require('express');
 var app = express();
 
-let str = MESSAGE_STYLE === "uppercase" ? "HELLO WORLD" : "Hello json";
+let str = process.env.MESSAGE_STYLE === "uppercase" ? "HELLO WORLD" : "Hello json";
 
 console.log(process.env.MESSAGE_STYLE)
 console.log(process.env.APP_ENV)
@@ -16,6 +15,6 @@ app.get("/json", (req, res) => {
     res.json({ "message": str })
 })
 
-app.use("/public", static(__dirname + "/public"))
+app.use("/public", express.static(__dirname + "/public"))
 
-export default app;
+module.exports = app;
