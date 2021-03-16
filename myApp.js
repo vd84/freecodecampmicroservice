@@ -1,8 +1,8 @@
+const env = require('./config');
 var express = require('express');
 var app = express();
-import { NODE_ENV } from './config';
 
-let str = NODE_ENV.MESSAGE_STYLE === "uppercase" ? "HELLO WORLD" : "Hello json";
+let str = env.MESSAGE_STYLE === "uppercase" ? "HELLO WORLD" : "Hello json";
 
 console.log(process.env.MESSAGE_STYLE)
 console.log(process.env.APP_ENV)
