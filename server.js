@@ -8,6 +8,16 @@ var myApp = require('./myApp');
 var express = require('express');
 var app = express();
 
+const result = dotenv.config()
+
+if (result.error) {
+  throw result.error
+}
+
+console.log(result.parsed)
+
+
+
 if (!process.env.DISABLE_XORIGIN) {
   app.use(function (req, res, next) {
     var allowedOrigins = ['https://narrow-plane.gomix.me', 'https://www.freecodecamp.com'];
