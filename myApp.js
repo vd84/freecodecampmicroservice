@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
 })
 
 app.get("/json", (req, res) => {
-    res.json({ "message": "HEJHEJ" })
+    res.json({ "message": str.toUpperCase() })
 })
 
 app.use("/public", express.static(__dirname + "/public"))
