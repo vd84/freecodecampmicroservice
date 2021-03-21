@@ -21,6 +21,13 @@ app.get("/json", (req, res) => {
     res.json({ "message": str })
 })
 
+app.get('/now', (req, res, next) => {
+    req.time = new Date
+    next()
+}, (req, res) => {
+    res.json({ "time": req.time })
+})
+
 app.use("/public", express.static(__dirname + "/public"))
 
 
