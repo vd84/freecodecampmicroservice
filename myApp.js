@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser')
 
 let str = process.env.MESSAGE_STYLE === "uppercase" ? "HELLO WORLD" : "Hello json";
 
@@ -13,6 +14,8 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/views/index.html")
 })
@@ -20,6 +23,8 @@ app.get("/", (req, res) => {
 app.route("/name").get((req, res) => {
 
     res.json({ "name": req.query.first + " " + req.query.last })
+}).post(() => {
+
 })
 
 app.get("/json", (req, res) => {
