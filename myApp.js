@@ -21,6 +21,10 @@ app.get("/json", (req, res) => {
     res.json({ "message": str })
 })
 
+app.get("/:word/echo", (req, res) => {
+    res.json({ "echo": req.params.word })
+})
+
 app.get('/now', (req, res, next) => {
     req.time = new Date
     next()
