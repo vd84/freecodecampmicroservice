@@ -7,7 +7,7 @@ console.log(process.env.MESSAGE_STYLE)
 console.log(process.env.APP_ENV)
 console.log(str)
 
-app.use(function middleware(req, res, next) {
+app.use((req, res, next) => {
     // Do something
     console.log(req.method + " " + req.path + " - " + req.ip);
     next();
