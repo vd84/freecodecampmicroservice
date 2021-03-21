@@ -17,6 +17,11 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + "/views/index.html")
 })
 
+app.route("/name").get((req, res) => {
+
+    res.json({ "name": req.query.first + " " + req.query.last })
+})
+
 app.get("/json", (req, res) => {
     res.json({ "message": str })
 })
