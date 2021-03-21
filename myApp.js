@@ -7,8 +7,11 @@ console.log(process.env.MESSAGE_STYLE)
 console.log(process.env.APP_ENV)
 console.log(str)
 
-app.use((req, res, next) => { console.log(req.method + " " + req.path + " - " + req.ip); next() })
-
+app.use(function middleware(req, res, next) {
+    // Do something
+    console.log(req.method + " " + req.path + " - " + req.ip);
+    next();
+});
 
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/views/index.html")
